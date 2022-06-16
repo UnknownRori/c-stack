@@ -13,11 +13,11 @@
  */
 void push(Stack *stack, int value)
 {
+    stack->pointer++;
     if (stack->pointer >= stack->size)
         exit(0);
 
     stack->data[stack->pointer] = value;
-    stack->pointer++;
 }
 
 /**
@@ -28,14 +28,14 @@ void push(Stack *stack, int value)
  */
 int pop(Stack *stack)
 {
+
     if (stack->pointer >= stack->size)
         exit(0);
 
-    stack->pointer--;
-
     int temp = stack->data[stack->pointer];
-
     stack->data[stack->pointer] = -1;
+
+    stack->pointer--;
 
     return temp;
 }
@@ -47,9 +47,9 @@ int pop(Stack *stack)
  */
 void print(Stack *stack)
 {
-    for (int i = 0; i < stack->pointer; i++)
+    for (int i = 0; i <= stack->pointer; i++)
     {
-        if (i >= stack->pointer - 1)
+        if (i >= stack->pointer)
             printf("%d", stack->data[i]);
         else
             printf("%d, ", stack->data[i]);
@@ -76,7 +76,7 @@ Stack *createStack(int size)
     stack = malloc(sizeof(Stack));
     stack->size = size;
     stack->data = malloc(sizeof(int) * size);
-    stack->pointer = 0;
+    stack->pointer = -1;
     stack->push = &push;
     stack->pop = &pop;
     stack->print = &print;
