@@ -39,6 +39,8 @@ struct Stack
      * @param stack
      */
     void (*print)(Stack *stack);
+
+    int (*top)(Stack *stack);
 };
 
 Stack *createStack(int size);

@@ -70,6 +70,11 @@ int isEmpty(Stack *stack)
     return False;
 }
 
+int top(Stack *stack)
+{
+    return stack->data[stack->pointer];
+}
+
 Stack *createStack(int size)
 {
     Stack *stack;
@@ -81,6 +86,7 @@ Stack *createStack(int size)
     stack->pop = &pop;
     stack->print = &print;
     stack->isEmpty = &isEmpty;
+    stack->top = &top;
 
     return stack;
 }

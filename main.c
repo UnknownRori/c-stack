@@ -10,4 +10,5 @@ int main()
     stack->push(stack, 40);
     printf("%d \n", stack->pop(stack));
     stack->print(stack);
+    printf("Current top : %d \n", stack->top(stack));
 }
