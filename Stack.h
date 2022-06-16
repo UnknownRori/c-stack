@@ -18,13 +18,6 @@ struct Stack
     void (*push)(Stack *stack, int value);
 
     /**
-     * @brief Print the stack
-     *
-     * @param stack
-     */
-    void (*print)(Stack *stack);
-
-    /**
      * @brief Pop the current value in the pointer
      *
      * @param stack
@@ -39,6 +32,13 @@ struct Stack
      * @return int
      */
     int (*isEmpty)(Stack *stack);
+
+    /**
+     * @brief Print the stack
+     *
+     * @param stack
+     */
+    void (*print)(Stack *stack);
 };
 
 Stack *createStack(int size);
